@@ -1,23 +1,15 @@
-# Part A
 import itertools
+import typing as T
+from functools import reduce
+
+
+def solve(input_data: T.List[int], combination_of: int) -> int:
+    for subset in itertools.combinations(input_data, combination_of):
+        if sum(subset) == 2020:
+            return reduce(lambda x, y: x * y, subset)
+    return float("NaN")
+
 
 in_data = [int(num.rstrip()) for num in open("input", "r").readlines() if num]
-combi = []
-
-for subset in itertools.combinations(in_data, 2):
-    if sum(subset) == 2020:
-        combi = subset
-        break
-
-if combi:
-    print(f"Part A: {combi[0] * combi[1]}")
-
-# Part B
-combi = []
-for subset in itertools.combinations(in_data, 3):
-    if sum(subset) == 2020:
-        combi = subset
-        break
-
-if combi:
-    print(f"Part B: {combi[0] * combi[1] * combi[2]}")
+print(f"Part A: {solve(in_data, 2)}")
+print(f"Part B: {solve(in_data, 3)}")
