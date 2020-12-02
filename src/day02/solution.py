@@ -27,12 +27,10 @@ def solve_b(input_mapped: t.List[dict]) -> int:
     for data in input_mapped:
         fn_val = data["pass"][data["s"] - 1] == data["code"]
         ln_val = data["pass"][data["e"] - 1] == data["code"]
-        if fn_val:
-            if not ln_val:
-                valid += 1
-        elif ln_val:
-            if not fn_val:
-                valid += 1
+        if fn_val and not ln_val:
+            valid += 1
+        elif ln_val and not fn_val:
+            valid += 1
     return valid
 
 
