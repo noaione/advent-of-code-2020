@@ -40,6 +40,5 @@ if __name__ == "__main__":
     in_data = [num.rstrip() for num in open("input", "r").readlines() if num]
     # in_data = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
     mapped_data = [remap(c) for c in in_data]
-    print(mapped_data)
     print(f"Part A: {solve_a(mapped_data)}")
     print(f"Part B: {solve_b(mapped_data)}")
