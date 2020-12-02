@@ -1,13 +1,11 @@
-import itertools
 import typing as T
 from functools import reduce
+from itertools import combinations
 
 
 def solve(input_data: T.List[int], combination_of: int) -> int:
-    for subset in itertools.combinations(input_data, combination_of):
-        if sum(subset) == 2020:
-            return reduce(lambda x, y: x * y, subset)
-    return float("NaN")
+    final = filter(lambda subset: sum(subset) == 2020, combinations(input_data, combination_of)).__next__()
+    return reduce(lambda x, y: x * y, final)
 
 
 if __name__ == "__main__":
