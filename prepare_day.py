@@ -36,6 +36,8 @@ wait_for = input(f"[AoC-2020-Day{dayf}] This will prepare day {dayf}, type `c` t
 if wait_for.lower().strip() == "c":
     sys.exit(1)
 
+os.makedirs(f"./src/day{dayf}")
+
 PYTHON_INIT = """import typing as t
 
 in_data = [num.rstrip() for num in open("input", "r").readlines() if num]
@@ -46,11 +48,11 @@ print(f"Part A: ")
 # Part B
 print(f"Part B: ")
 
-if __name__ == "__main__":
-    pass
-    # in_data = [int(num.rstrip()) for num in open("input", "r").readlines() if num]
-    # print(f"Part A: {solve(in_data, 2)}")
-    # print(f"Part B: {solve(in_data, 3)}")
+# if __name__ == "__main__":
+#     pass
+#     in_data = [num.rstrip() for num in open("input", "r").readlines() if num]
+#     print(f"Part A: {solve(in_data, 2)}")
+#     print(f"Part B: {solve(in_data, 3)}")
 """
 
 JS_INIT = """const utils = require("../utils/utils");
